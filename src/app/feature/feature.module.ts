@@ -21,10 +21,6 @@ import { FeatureRoutingModule } from './feature.route';
     FeatureRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ObserversModule,
-    OverlayModule,
-    PlatformModule,
-    PortalModule,
   ],
   providers: [
     AutocompleteService

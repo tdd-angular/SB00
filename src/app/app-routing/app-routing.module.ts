@@ -4,12 +4,12 @@ import { HomeComponent } from '../home/home.component';
 
 export const routes: Routes = [
   {
-    path: '/feature',
-    loadChildren: './feature/feature.module#FeatureModule',
-  },
-  {
     path: '/home',
     component: HomeComponent,
+  },
+  {
+    path: '/feature',
+    loadChildren: './feature/feature.module#FeatureModule',
   },
   {
     path: '',
