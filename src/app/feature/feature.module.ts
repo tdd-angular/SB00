@@ -8,6 +8,7 @@ import { PlatformModule } from '@angular/cdk/platform';
 import { PortalModule } from '@angular/cdk/portal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteService } from './services/autocomplete.service';
+import { FeatureRoutingModule } from './feature.route';
 
 @NgModule({
   declarations: [DemoFormComponent],
@@ -17,6 +18,7 @@ import { AutocompleteService } from './services/autocomplete.service';
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
+    FeatureRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     ObserversModule,
