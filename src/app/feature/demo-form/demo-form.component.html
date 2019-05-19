@@ -1,10 +1,41 @@
-<form>
- <div>
-  <mat-form-field>
-    <mat-autocomplete>
-
-    </mat-autocomplete>
-  </mat-form-field>
- </div>
+<form [formGroup]="formGroup">
+  <div>
+    <mat-form-field>
+      <input matInput
+             placeholder="Airport name"
+             [required]=true
+             [matAutocomplete]="airports"
+             [formControl]="airportCtrl"
+             matTooltip="Airports"
+             autocomplete="off">
+      <mat-autocomplete #airports="matAutocomplete"
+                        [panelWidth]="panelWidth">
+        <mat-option *ngFor="let airport of filteredAirports"
+                    [value]="airport.name">
+          {{airport.name}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="airportCtrl.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-hint>
+        {{ hint }}
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [formControl]="typeCtrl"
+                  (selectionChange)="onSelectionChanged($event)">
+        <mat-option *ngFor="let type of types"
+                    [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="typeCtrl.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-hint>
+        {{ hint }}
+      </mat-hint>
+    </mat-form-field>
+  </div>
 </form>
-
