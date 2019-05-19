@@ -4,17 +4,18 @@ import { HomeComponent } from '../home/home.component';
 
 export const routes: Routes = [
   {
-    path: '/home',
+    path: 'home',
     component: HomeComponent,
   },
   {
-    path: '/feature',
+    path: 'feature',
     loadChildren: './feature/feature.module#FeatureModule',
   },
   {
     path: '',
-    redirectTo: '/home',
-  },
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
