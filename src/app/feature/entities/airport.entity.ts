@@ -1,4 +1,4 @@
-export class Airport {
+export interface Airport {
   name: string;
   type: string;
 }

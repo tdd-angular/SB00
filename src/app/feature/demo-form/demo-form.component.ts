@@ -10,7 +10,7 @@ import { AutocompleteService } from '../services/autocomplete.service';
 @Component({
   selector: 'app-demo-form',
   templateUrl: './demo-form.component.html',
-  styleUrls: ['./demo-form.component.css']
+  styles: ['']
 })
 export class DemoFormComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
