@@ -12,7 +12,7 @@ import { AutocompleteService } from '../services/autocomplete.service';
   templateUrl: './demo-form.component.html',
   styleUrls: ['./demo-form.component.css']
 })
-export class DemoFormComponent implements OnInit {
+export class DemoFormComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
   airportCtrl: FormControl = new FormControl('', Validators.required);
   typeCtrl: FormControl = new FormControl();
@@ -71,5 +71,10 @@ export class DemoFormComponent implements OnInit {
 
   onSelectionChanged(event: MatSelectChange) {
     this.selectedType = event.value;
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
