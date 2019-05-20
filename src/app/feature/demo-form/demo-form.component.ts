@@ -44,7 +44,8 @@ export class DemoFormComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.httpClient.get<Airport[]>(
-      '/assets/airport.json'
+      // '/assets/airport.json'
+      'https://github.com/tdd-angular/SB00/raw/master/src/assets/airport.json'
       // 'https://pkgstore.datahub.io/core/airport-codes/airport-codes_json/data/89a3ac713e54bc646db9665220484d71/airport-codes_json.json'
     )
       .pipe(takeUntil(this.destroy$))
