@@ -1,8 +1,12 @@
-<h1>
-  Angular TDD
-</h1>
+<mat-card>
+  <h1>Angular TDD </h1>
 
-<button routerLink="/home">Home</button>
-<button routerLink="/feature">Demo</button>
-
-<router-outlet></router-outlet>
+  <button mat-raised-button
+          color="accent"
+          routerLink="/home">Home</button>
+  <button mat-raised-button
+          color="primary"
+          routerLink="/feature">Demo</button>
+  <hr />
+  <router-outlet></router-outlet>
+</mat-card>

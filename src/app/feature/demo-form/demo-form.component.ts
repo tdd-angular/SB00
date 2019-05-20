@@ -35,6 +35,7 @@ export class DemoFormComponent implements OnInit, OnDestroy {
       typeCtrl: this.typeCtrl,
     });
     this.setValidators();
+    this.loadData();
   }
 
   setValidators() {
@@ -42,20 +43,13 @@ export class DemoFormComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
-    this.httpClient
-      .get(
-        'https://pkgstore.datahub.io/core/airport-codes/airport-codes_json/data/89a3ac713e54bc646db9665220484d71/airport-codes_json.json'
-      )
-      .pipe(
-        map((data: string) => {
-          return JSON.parse(data) as Airport[];
-        }),
-        takeUntil(this.destroy$),
-      )
+    this.httpClient.get<Airport[]>(
+      '/assets/airport.json'
+      // 'https://pkgstore.datahub.io/core/airport-codes/airport-codes_json/data/89a3ac713e54bc646db9665220484d71/airport-codes_json.json'
+    )
+      .pipe(takeUntil(this.destroy$))
       .subscribe((airports: Airport[]) => {
-        this.types = airports.map((airport) => {
-          return airport.type;
-        })
+        this.types = airports.map((x) => x.type)
           .filter((airport, index, array) => array.indexOf(airport) === index);
         this.handleChanges(airports);
       });
@@ -65,7 +59,7 @@ export class DemoFormComponent implements OnInit, OnDestroy {
     this.airports = airports;
     Object.assign(this.filteredAirports, this.airports);
     this.airportCtrl.valueChanges.subscribe((value) => {
-      this.filteredAirports = this.autocompleteService.filter(value, this.airports, 'name');
+      this.filteredAirports = this.autocompleteService.filter(value, this.airports);
     });
   }
 

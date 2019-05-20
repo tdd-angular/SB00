@@ -8,20 +8,10 @@ export class AutocompleteService {
   filter(
     input: string,
     list: any[],
-    propertyToCompare: string,
+    propertyToCompare: string = 'name',
   ) {
-    let filteredList = list;
-    if (input) {
-      filteredList = list.filter((item) => {
-        return item[propertyToCompare] &&
-          (
-            (item[propertyToCompare].toString().toLowerCase())
-              .startsWith(input.toString().toLowerCase())
-            || (item[propertyToCompare]).toString().toLowerCase()
-              .startsWith(input[propertyToCompare].toString().toLowerCase())
-          );
-      });
-    }
-    return filteredList;
+    const filterValue = input.toLowerCase();
+
+    return list.filter(state => state[propertyToCompare].toLowerCase().indexOf(filterValue) === 0);
   }
 }

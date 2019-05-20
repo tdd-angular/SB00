@@ -1,1 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+button {
+    margin-right: 15px;
+}
+
+hr {
+    margin: 25px !important;
+}

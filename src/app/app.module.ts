@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule, MatCardModule, MatDividerModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,9 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     HomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
