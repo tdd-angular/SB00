@@ -48,7 +48,7 @@ export class DemoFormComponent implements OnInit, OnDestroy {
       )
       .pipe(
         map((data: string) => {
-          return JSON.parse(data);
+          return JSON.parse(data) as Airport[];
         }),
         takeUntil(this.destroy$),
       )
