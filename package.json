@@ -49,6 +49,9 @@
   },
   "resolutions": {
     "tar": ">=4.4.2",
-    "lodash": ">=4.17.13"
+    "lodash": ">=4.17.13",
+    "webpack-dev-server": ">=3.1.11",
+    "lodash.mergewith": ">=4.6.2",
+    "fstream": ">=1.0.12"
   }
 }
